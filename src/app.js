@@ -18,7 +18,6 @@ const invertBtn     = container.querySelector('button[name="invert"]')
 const imageBtn      = container.querySelector('button[name="image"]')
 const exportJSONBtn = container.querySelector('button[name="export-json"]')
 const exportPNGBtn  = container.querySelector('button[name="export-png"]')
-const calculateBtn  = container.querySelector('button[name="calculate"]')
 
 const inputCanvas  = container.querySelector('#input-grid canvas') 
 const outputCanvas = container.querySelector('#output-grid canvas')
@@ -44,7 +43,6 @@ inputCanvas.addEventListener('contextmenu', function(e) {
 })
 
 inputCanvas.addEventListener('mousedown', function(e) {
-  container.classList.add('editing')
   handleMouseEvent(e, grid, inputCanvas.width, inputCanvas.height)
   drawInputGrid(grid, inputCanvas, inputCtx)
 })
@@ -54,28 +52,34 @@ inputCanvas.addEventListener('mousemove', function (e) {
   drawInputGrid(grid, inputCanvas, inputCtx)
 })
 
+inputCanvas.addEventListener('mouseup', function(e) {
+  if (!container.classList.contains('calculating')) {
+    calculate() 
+  }
+})
+
 widthInput.addEventListener( 'change', function(e) {
-  container.classList.add('editing')
   resizeGrid(parseInt(e.target.value), grid.length, grid)
   drawInputGrid(grid, inputCanvas, inputCtx)
+  calculate()
 })
 
 heightInput.addEventListener('change', function(e) { 
-  container.classList.add('editing')
   resizeGrid(grid[0].length, parseInt(e.target.value), grid)
   drawInputGrid(grid, inputCanvas, inputCtx)
+  calculate()
 })
 
 clearBtn.addEventListener( 'click', function(e) {
-  container.classList.add('editing')
   grid = grid.map(row => row.map(() => 0))
   drawInputGrid(grid, inputCanvas, inputCtx)
+  calculate()
 })
 
 invertBtn.addEventListener('click', function(e) {
-  container.classList.add('editing')
   grid = grid.map(row => row.map(cell => cell === 1 ? 0 : 1))
   drawInputGrid(grid, inputCanvas, inputCtx)
+  calculate()
 })
 
 imageBtn.addEventListener('click', function(e) {
@@ -90,7 +94,7 @@ fileInput.addEventListener('change', function(e) {
 
   fr.addEventListener('load', async function() {
     grid = await generateGridFromImage(fr.result, widthInput.value, heightInput.value)
-    container.classList.add('editing')
+    calculate()
   })
 
   fr.readAsDataURL(e.target.files[0])
@@ -105,8 +109,7 @@ exportJSONBtn.addEventListener('click', function(e) {
   exportGrid(grid, 'json')
 })
 
-calculateBtn.addEventListener('click', function(e) {
-  container.classList.remove('editing')
+function calculate() {
   container.classList.add('calculating')
 
   setTimeout(function() {
@@ -117,11 +120,8 @@ calculateBtn.addEventListener('click', function(e) {
         drawOutputGrid(solvedGrid, horizontalClues, verticalClues, outputCanvas, outputCtx)
         container.classList.remove('calculating')
       })
-      .catch(err => {
-        console.log(err)
-      })  
-  }, 500)  
-})
+  }, 50)  
+}
 
 async function init() {
   const { horizontalClues, verticalClues } = generateClues(grid)

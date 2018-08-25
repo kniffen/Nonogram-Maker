@@ -134,36 +134,24 @@ button {
   grid-column: 2 / 3;
 }
 
-#loading,
-#calculate {
+#loading {
   display: none;
   position: absolute;
-  background-color: rgba(100,100,100,.8);
+  background-color: rgba(100,100,100,.2);
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-}
-
-#calculate button {
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  height: 40px;
-  width: 160px;
 }
 
 #loading h2 {
   text-align: center;
   line-height: 600px;
   color: #FFFFFF;
+  text-shadow: 2px 2px 2px #333333;
 }
 
-.calculating #loading,
-.editing #calculate { display: block; }
+.calculating #loading { display: block; }
 
 footer {
   grid-column: 1 / 3;

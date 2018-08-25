@@ -3,8 +3,8 @@
 <head>
   <title>Nonogram Maker</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-  <link href="style.css?v=1.0.0" rel="stylesheet" />
-  <script type="text/javascript" src="app.js?v=1.0.0" defer="defer"></script>
+  <link href="style.css?v=1.0.1" rel="stylesheet" />
+  <script type="text/javascript" src="app.js?v=1.0.1" defer="defer"></script>
 </head>
 <body>
 
@@ -18,12 +18,12 @@
     <div id="settings" class="box">
       <div>
         <span>Width</span>
-        <input name="width" type="number" value="10" max="25" min="5" />
+        <input name="width" type="number" value="10" max="25" min="5" step="5" />
       </div>
 
       <div>
         <span>Height</span>
-        <input name="height" type="number" value="10" max="25" min="5" />
+        <input name="height" type="number" value="10" max="25" min="5" step="5" />
       </div>
 
       <button name="clear">Clear</button>
@@ -69,10 +69,6 @@
 
       <div id="loading">
         <h2>Calculating...</h2>
-      </div>
-
-      <div id="calculate">
-        <button name="calculate">Calculate solvability</button>
       </div>
 
       <canvas width="550" height="550"></canvas>
