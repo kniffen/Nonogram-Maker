@@ -65,6 +65,7 @@ function drawOutputGrid(grid, horizontalClues, verticalClues, canvas, ctx) {
 
   // Horizontal clues
   for (const y in grid) {
+    horizontalClues[y].reverse()
     for (let x = 0; x < grid[y].length / 2; x++) {
 
       ctx.fillStyle = y % 2 === 0 ? '#DDDDDD' : '#EAEAEA'
@@ -100,6 +101,7 @@ function drawOutputGrid(grid, horizontalClues, verticalClues, canvas, ctx) {
 
   // Vertical clues
   for (const x in grid[0]) {
+    verticalClues[x].reverse()
     for (let y = 0; y < grid.length / 2; y++) {
 
       ctx.fillStyle = x % 2 === 0 ? '#DDDDDD' : '#EAEAEA'
