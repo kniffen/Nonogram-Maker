@@ -114,18 +114,16 @@ function calculate() {
 
   setTimeout(function() {
     const { horizontalClues, verticalClues } = generateClues(grid)
-
-    solver(grid[0].length, grid.length, horizontalClues, verticalClues)
-      .then(solvedGrid => {
-        drawOutputGrid(solvedGrid, horizontalClues, verticalClues, outputCanvas, outputCtx)
-        container.classList.remove('calculating')
-      })
+    const solvedGrid = solver(grid[0].length, grid.length, horizontalClues, verticalClues)
+    
+    drawOutputGrid(solvedGrid, horizontalClues, verticalClues, outputCanvas, outputCtx)
+    container.classList.remove('calculating')
   }, 50)  
 }
 
-async function init() {
+function init() {
   const { horizontalClues, verticalClues } = generateClues(grid)
-  const solvedGrid = await solver(grid[0].length, grid.length, horizontalClues, verticalClues)
+  const solvedGrid = solver(grid[0].length, grid.length, horizontalClues, verticalClues)
   
   drawInputGrid(grid, inputCanvas, inputCtx)
   drawOutputGrid(solvedGrid, horizontalClues, verticalClues, outputCanvas, outputCtx)

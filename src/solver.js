@@ -1,4 +1,4 @@
-async function solver(cols, rows, horizontalClues, verticalClues) {
+function solver(cols, rows, horizontalClues, verticalClues) {
 
   const grid = []
   
@@ -17,7 +17,7 @@ async function solver(cols, rows, horizontalClues, verticalClues) {
       let col = []
 
       for (const y in grid) col.push(grid[y][x])
-
+      
       col = solveRow(verticalClues[x], col)
 
       for (const y in grid) {
