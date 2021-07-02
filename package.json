@@ -10,7 +10,7 @@
   "keywords": [
     "nonogram"
   ],
-  "author": "Snurr Games",
+  "author": "Kniffen",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
