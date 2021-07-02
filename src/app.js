@@ -92,9 +92,11 @@ fileInput.addEventListener('change', function(e) {
 
   const fr = new FileReader()
 
-  fr.addEventListener('load', async function() {
-    grid = await generateGridFromImage(fr.result, widthInput.value, heightInput.value)
-    calculate()
+  fr.addEventListener('load', function() {
+    generateGridFromImage(fr.result, widthInput.value, heightInput.value).then(generatedGrid => {
+      grid = generatedGrid
+      calculate()
+    })
   })
 
   fr.readAsDataURL(e.target.files[0])
