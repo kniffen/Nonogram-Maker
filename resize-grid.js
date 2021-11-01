@@ -1,4 +1,4 @@
-function resizeGrid(cols, rows, grid) {
+export default function resizeGrid(cols, rows, grid) {
 
   if (grid[0].length < cols) {
     for (const y in grid) {
@@ -24,5 +24,3 @@ function resizeGrid(cols, rows, grid) {
   }
 
 }
-
-module.exports = resizeGrid

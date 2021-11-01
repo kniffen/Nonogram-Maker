@@ -1,4 +1,4 @@
-function generateGridFromImage(src, width, height) {
+export default function generateGridFromImage(src, width, height) {
 
   return new Promise((resolve) => {
     const canvas = document.createElement('canvas')
@@ -33,5 +33,3 @@ function generateGridFromImage(src, width, height) {
   })
 
 }
-
-module.exports = generateGridFromImage

@@ -1,4 +1,4 @@
-function solver(cols, rows, horizontalClues, verticalClues) {
+export default function solver(cols, rows, horizontalClues, verticalClues) {
 
   const grid = []
   
@@ -101,7 +101,7 @@ function getPermutations(clues, length) {
     const subRows = getPermutations(clues.slice(1, clues.length), length - x)
 
     for (const j in subRows) {
-      subPermutation = permutation.slice()
+      const subPermutation = permutation.slice()
 
       for (let k = x; k < length; k++) {
         subPermutation.push(subRows[j][k - x])
@@ -115,5 +115,3 @@ function getPermutations(clues, length) {
   return permutations
 
 }
-
-module.exports = solver

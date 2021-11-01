@@ -1,11 +1,11 @@
-const drawInputGrid         = require('./draw-input-grid')
-const drawOutputGrid        = require('./draw-output-grid')
-const solver                = require('./solver')
-const generateClues         = require('./generate-clues')
-const handleMouseEvent      = require('./handle-mouse-event')
-const resizeGrid            = require('./resize-grid')
-const exportGrid            = require('./export-grid')
-const generateGridFromImage = require('./generate-grid-from-image')
+import drawInputGrid         from './draw-input-grid.js'
+import drawOutputGrid        from './draw-output-grid.js'
+import solver                from './solver.js'
+import generateClues         from './generate-clues.js'
+import handleMouseEvent      from './handle-mouse-event.js'
+import resizeGrid            from './resize-grid.js'
+import exportGrid            from './export-grid.js'
+import generateGridFromImage from './generate-grid-from-image.js'
 
 const container = document.getElementById('container')
 

@@ -1,4 +1,4 @@
-function drawInputGrid(grid, canvas, ctx) {
+export default function drawInputGrid(grid, canvas, ctx) {
 
   canvas.width = canvas.width
 
@@ -29,5 +29,3 @@ function drawInputGrid(grid, canvas, ctx) {
   ctx.strokeRect(0, 0, dim * grid[0].length, dim * grid.length)
 
 }
-
-module.exports = drawInputGrid

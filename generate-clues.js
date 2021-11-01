@@ -1,4 +1,4 @@
-function generateClues(rows) {
+export default function generateClues(rows) {
 
   const cols = []
   for (const y in rows) {
@@ -14,5 +14,3 @@ function generateClues(rows) {
   }
   
 }
-
-module.exports = generateClues

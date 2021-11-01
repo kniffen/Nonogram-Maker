@@ -1,4 +1,4 @@
-function handleMouseEvent(e, grid, width, height) {
+export default function handleMouseEvent(e, grid, width, height) {
   
   if (e.buttons !== 1 && e.buttons !== 2) return
 
@@ -16,5 +16,3 @@ function handleMouseEvent(e, grid, width, height) {
   }
 
 }
-
-module.exports = handleMouseEvent

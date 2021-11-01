@@ -1,7 +1,7 @@
-const drawOutputGrid = require('./draw-output-grid')
-const generateClues  = require('./generate-clues')
+import drawOutputGrid from './draw-output-grid.js'
+import generateClues  from './generate-clues.js'
 
-function exportGrid(grid, type) {
+export default function exportGrid(grid, type) {
 
   const a = document.createElement('a')
 
@@ -34,8 +34,4 @@ function exportGrid(grid, type) {
   a.click()
 
   document.body.removeChild(a)
-
-
 }
-
-module.exports = exportGrid

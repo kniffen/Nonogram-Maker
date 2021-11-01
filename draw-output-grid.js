@@ -1,4 +1,4 @@
-function drawOutputGrid(grid, horizontalClues, verticalClues, canvas, ctx) {
+export default function drawOutputGrid(grid, horizontalClues, verticalClues, canvas, ctx) {
 
   canvas.width = canvas.width
 
@@ -158,5 +158,3 @@ function drawOutputGrid(grid, horizontalClues, verticalClues, canvas, ctx) {
   }
 
 }
-
-module.exports= drawOutputGrid
